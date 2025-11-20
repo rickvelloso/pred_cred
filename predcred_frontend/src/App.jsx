@@ -4,12 +4,14 @@ import './App.css';
 import CostChart from './components/CostChart';
 import MetricsDisplay from './components/MetricsDisplay';
 import OptimizationSummary from './components/OptimizationSummary';
+import IndividualScoring from './components/IndividualScoring';
 
 // Local hosted backend para testes internos
 //const API_URL = 'http://127.0.0.1:8000';
 const API_URL = 'https://predcred-api.onrender.com'; 
 
 function App() {
+  const [view, setView] = useState('simulator'); // 'simulator' ou 'individual'
   const [optimization, setOptimization] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -127,8 +129,27 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Navegação por Abas */}
+      <div className="navigation-tabs">
+        <button 
+          className={`tab-button ${view === 'simulator' ? 'active' : ''}`}
+          onClick={() => setView('simulator')}
+        >
+          📊 Simulador de Risco
+        </button>
+        <button 
+          className={`tab-button ${view === 'individual' ? 'active' : ''}`}
+          onClick={() => setView('individual')}
+        >
+          🔍 Análise Individual
+        </button>
+      </div>
       
-      <div className="model-selector">
+      {/* Conteúdo do Simulador */}
+      {view === 'simulator' && (
+        <>
+          <div className="model-selector">
         <h3>Selecione o Modelo</h3>
         <div className="model-buttons">
           <button 
@@ -220,6 +241,11 @@ function App() {
           <MetricsDisplay financials={financialMetrics} />
         </>
       )}
+        </>
+      )}
+
+      {/* Conteúdo da Análise Individual */}
+      {view === 'individual' && <IndividualScoring />}
     </div>
   );
 }
