@@ -395,7 +395,7 @@ O threshold padrão (0.5) raramente é ótimo. **Ajustar baseado em custos de ne
 
 **Rick Velloso**
 - GitHub: [@rickvelloso](https://github.com/rickvelloso)
-- LinkedIn: [Rick Velloso](https://www.linkedin.com/in/rickvelloso)
+- LinkedIn: [Rick Velloso](https://www.linkedin.com/in/pedro-henrique-barreto-velloso-b06063166/)
 
 ---
 
