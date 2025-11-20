@@ -1,0 +1,32 @@
+.individual-scoring-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.scoring-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.scoring-header h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  color: #1f2937;
+}
+
+.scoring-subtitle {
+  color: #6b7280;
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .individual-scoring-container {
+    padding: 1rem;
+  }
+
+  .scoring-header h2 {
+    font-size: 1.5rem;
+  }
+}
