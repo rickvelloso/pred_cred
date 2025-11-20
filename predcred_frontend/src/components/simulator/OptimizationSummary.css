@@ -1,0 +1,149 @@
+.optimization-summary {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border-left: 4px solid #61DAFB;
+  box-shadow: 0 4px 16px rgba(97, 218, 251, 0.2);
+}
+
+.summary-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.summary-header h3 {
+  color: #61DAFB;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.summary-header p {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.optimal-value {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(97, 218, 251, 0.1);
+  border-radius: 10px;
+  border: 2px solid rgba(97, 218, 251, 0.3);
+}
+
+.optimal-value .label {
+  display: block;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.optimal-value .value.threshold {
+  display: block;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #61DAFB;
+  margin: 0.25rem 0;
+  text-shadow: 0 2px 8px rgba(97, 218, 251, 0.3);
+}
+
+.optimal-value .description {
+  display: block;
+  color: #ccc;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.optimal-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.metric-item {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.metric-label {
+  color: #aaa;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.metric-value.cost {
+  color: #61DAFB;
+}
+
+.metric-value.fn {
+  color: #ff6b6b;
+}
+
+.metric-value.fp {
+  color: #feca57;
+}
+
+.recommendation-box {
+  background-color: rgba(97, 218, 251, 0.05);
+  padding: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  line-height: 1.6;
+}
+
+.recommendation-box strong {
+  color: #61DAFB;
+}
+
+.recommendation-box p {
+  margin: 0.5rem 0 0 0;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .optimization-summary {
+    padding: 1.5rem;
+  }
+
+  .summary-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .optimal-value .value.threshold {
+    font-size: 2.5rem;
+  }
+
+  .optimal-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendation-box {
+    padding: 1rem;
+  }
+
+  .recommendation-box p {
+    font-size: 0.9rem;
+  }
+}

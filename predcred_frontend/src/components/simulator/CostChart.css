@@ -1,0 +1,92 @@
+.cost-chart-container {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.chart-title {
+  color: #61DAFB;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.chart-subtitle {
+  color: #aaa;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.chart-legend-custom {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+.legend-line {
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.legend-line.total {
+  background-color: #61DAFB;
+}
+
+.legend-line.fn {
+  background: repeating-linear-gradient(
+    90deg,
+    #ff6b6b,
+    #ff6b6b 5px,
+    transparent 5px,
+    transparent 10px
+  );
+}
+
+.legend-line.fp {
+  background: repeating-linear-gradient(
+    90deg,
+    #feca57,
+    #feca57 5px,
+    transparent 5px,
+    transparent 10px
+  );
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .cost-chart-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .chart-title {
+    font-size: 1.2rem;
+  }
+
+  .chart-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .chart-legend-custom {
+    gap: 1rem;
+  }
+
+  .legend-item {
+    font-size: 0.8rem;
+  }
+}
