@@ -12,7 +12,7 @@ Características do V2:
 """
 
 from model_trainer import train_model
-from schema import ContractFeaturesV2
+from models.schemas import ContractFeaturesV2
 
 if __name__ == "__main__":
     train_model(
