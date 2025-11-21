@@ -1,4 +1,4 @@
-# PredCred Frontend - Dashboard Interativo de Análise de Risco
+# PredCred Web Portal - Dashboard Interativo de Análise de Risco
 
 **Versão:** 1.0.0 (Arquitetura Modular com Clean Code)
 
@@ -20,7 +20,7 @@ Dashboard React moderno e responsivo para análise comparativa de modelos de ris
 ## 🏗️ Arquitetura do Projeto
 
 ```
-predcred_frontend/
+web-portal/
 ├── src/
 │   ├── components/
 │   │   ├── common/              # Componentes compartilhados
@@ -397,7 +397,7 @@ Otimiza threshold baseado em custos.
 ### 2. Instalar Dependências
 
 ```bash
-cd predcred_frontend
+cd web-portal
 npm install
 ```
 
@@ -494,6 +494,6 @@ npm run preview
 
 ## 📖 Documentação Adicional
 
-Para informações sobre o backend e visão geral do sistema, consulte:
-- [Backend README](../backend/README.md)
+Para informações sobre o Risk Engine e visão geral do sistema, consulte:
+- [Risk Engine README](../risk-engine/README.md)
 - [README Principal](../README.md)

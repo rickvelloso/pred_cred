@@ -82,7 +82,7 @@ O dataset original possui **limitações estruturais**:
 
 ```
 pred_cred/
-├── backend/              # API FastAPI com ML
+├── risk-engine/          # Motor de IA (FastAPI + ML)
 │   ├── config/           # Configurações centralizadas
 │   ├── core/             # Carregamento de modelos e regras de negócio
 │   ├── models/           # Schemas Pydantic (request/response)
@@ -92,32 +92,43 @@ pred_cred/
 │   ├── data/             # Datasets (CSV)
 │   └── app.py            # Application Factory
 │
-└── predcred_frontend/    # Dashboard React
+├── web-portal/           # Portal Digital (React)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── common/   # Componentes compartilhados
+│   │   │   ├── scoring/  # Domínio de scoring individual
+│   │   │   └── simulator/ # Domínio de simulação de threshold
+│   │   ├── hooks/        # Custom hooks (useScoring, useOptimization)
+│   │   ├── utils/        # Funções auxiliares (API calls)
+│   │   └── constants/    # Configurações e valores fixos
+│   └── package.json
+│
+└── core-banking/         # Core Bancário (Spring Boot) [Futuro]
     ├── src/
-    │   ├── components/
-    │   │   ├── common/   # Componentes compartilhados
-    │   │   ├── scoring/  # Domínio de scoring individual
-    │   │   └── simulator/ # Domínio de simulação de threshold
-    │   ├── hooks/        # Custom hooks (useScoring, useOptimization)
-    │   ├── utils/        # Funções auxiliares (API calls)
-    │   └── constants/    # Configurações e valores fixos
-    └── package.json
+    ├── pom.xml
+    └── Dockerfile
 ```
 
 ### Stack Tecnológico
 
-#### Backend
+#### Risk Engine (Motor de IA)
 - **Framework**: FastAPI (Python 3.12)
 - **ML**: scikit-learn, imbalanced-learn (SMOTE)
 - **Data**: pandas, numpy
 - **Validação**: Pydantic
 - **Servidor**: Uvicorn (ASGI)
 
-#### Frontend
+#### Web Portal (Canal Digital)
 - **Framework**: React 19
 - **Build Tool**: Vite
 - **HTTP Client**: Axios
 - **Styling**: CSS Modules
+
+#### Core Banking (Futuro)
+- **Framework**: Spring Boot (Java)
+- **Database**: PostgreSQL
+- **Cache**: Redis
+- **Messaging**: RabbitMQ/Kafka
 
 ---
 
@@ -136,7 +147,7 @@ git clone https://github.com/rickvelloso/pred_cred.git
 cd pred_cred
 ```
 
-### 3. Setup Backend
+### 3. Setup Risk Engine (Motor de IA)
 
 ```bash
 # Criar e ativar virtual environment
@@ -146,22 +157,22 @@ source .venv/bin/activate  # Linux/Mac
 .venv\Scripts\activate     # Windows
 
 # Instalar dependências
-cd backend
+cd risk-engine
 pip install -r requirements.txt
 
 # Iniciar servidor
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Backend estará em: **http://localhost:8000**
+**Risk Engine** estará em: **http://localhost:8000**
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
 
-### 4. Setup Frontend
+### 4. Setup Web Portal (Canal Digital)
 
 ```bash
 # Em outro terminal
-cd predcred_frontend
+cd web-portal
 
 # Instalar dependências
 npm install
@@ -170,7 +181,7 @@ npm install
 npm run dev
 ```
 
-Frontend estará em: **http://localhost:5173**
+**Web Portal** estará em: **http://localhost:5173**
 
 ---
 
@@ -308,7 +319,7 @@ python train_v2.py
 
 ## 🏛️ Princípios de Arquitetura
 
-### Backend (FastAPI)
+### Risk Engine (Motor de IA)
 
 - ✅ **Clean Code**: Funções pequenas, nomes descritivos
 - ✅ **SOLID**: Single Responsibility, Dependency Inversion
@@ -316,7 +327,7 @@ python train_v2.py
 - ✅ **Separação de Concerns**: config → core → services → routes
 - ✅ **Redução de Código**: 388 linhas → 39 linhas (-90%)
 
-### Frontend (React)
+### Web Portal (Canal Digital)
 
 - ✅ **Component Composition**: Componentes pequenos e reutilizáveis
 - ✅ **Custom Hooks**: Lógica encapsulada (`useScoring`, `useOptimization`)
@@ -329,19 +340,19 @@ python train_v2.py
 ## 📊 Métricas de Qualidade
 
 ### Cobertura de Testes
-- ✅ Todos os endpoints testados manualmente
+- ✅ Todos os endpoints do Risk Engine testados manualmente
 - ✅ Validação de schemas Pydantic
 - ✅ Tratamento de erros implementado
 
 ### Performance
-- ⚡ Cold start: 5-10 segundos (carregamento de modelos)
+- ⚡ Cold start (Risk Engine): 5-10 segundos (carregamento de modelos)
 - ⚡ Scoring: < 100ms
 - ⚡ Otimização: ~2-3 segundos (99 thresholds)
 
 ### Manutenibilidade
-- 📈 **Backend**: Redução de 90% no arquivo principal
-- 📈 **Frontend**: Redução média de 86% nos componentes principais
-- 📈 **Modularidade**: 10 módulos backend + 15 componentes frontend
+- 📈 **Risk Engine**: Redução de 90% no arquivo principal
+- 📈 **Web Portal**: Redução média de 86% nos componentes principais
+- 📈 **Modularidade**: 10 módulos risk-engine + 15 componentes web-portal
 
 ---
 
@@ -349,13 +360,13 @@ python train_v2.py
 
 ### Para Desenvolvedores
 
-- **[Backend README](backend/README.md)**: Documentação completa da API
+- **[Risk Engine README](risk-engine/README.md)**: Documentação completa do Motor de IA
   - Arquitetura de camadas (config, core, services, routes)
   - Classes e métodos detalhados
   - Exemplos de uso de todos os endpoints
   - Instruções de treinamento de modelos
 
-- **[Frontend README](predcred_frontend/README.md)**: Documentação completa do Dashboard
+- **[Web Portal README](web-portal/README.md)**: Documentação completa do Portal Digital
   - Arquitetura de componentes
   - Custom hooks e utilities
   - Props e comportamentos de cada componente

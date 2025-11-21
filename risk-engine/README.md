@@ -1,4 +1,4 @@
-# PredCred Backend - API Preditiva de Risco de Crédito
+# PredCred Risk Engine - Motor de IA para Análise de Risco de Crédito
 
 **Versão:** 1.0.0 (Arquitetura Modular)
 
@@ -20,7 +20,7 @@ API REST de Machine Learning construída com FastAPI, aplicando princípios de C
 ## 🏗️ Arquitetura do Projeto
 
 ```
-backend/
+risk-engine/
 ├── config/
 │   └── settings.py          # Configurações centralizadas
 ├── core/
@@ -304,7 +304,7 @@ app = create_app()
 ### 2. Instalar Dependências
 
 ```bash
-cd backend
+cd risk-engine
 pip install -r requirements.txt
 ```
 
@@ -420,6 +420,6 @@ Ambos os scripts usam `model_trainer.py` (padrão DRY).
 
 ## 📖 Documentação Adicional
 
-Para informações sobre o frontend e visão geral do sistema, consulte:
-- [Frontend README](../predcred_frontend/README.md)
+Para informações sobre o Web Portal e visão geral do sistema, consulte:
+- [Web Portal README](../web-portal/README.md)
 - [README Principal](../README.md)
